@@ -366,3 +366,28 @@ function squareDance(queue){
 
 // squareDance(SDQ);
 
+function bank(queue){
+  while(queue.first){
+    let person = queue.dequeue();
+    let random = Math.random();
+    if(random < .25){
+      queue.enqueue(person);
+      console.log(`${person} moved to back of line`)
+    } else{
+    console.log(`${person} served`);
+    }
+  }
+  console.log('everyone served')
+}
+
+// const BQ = new Queue();
+
+// BQ.enqueue('person a');
+// BQ.enqueue('person b');
+// BQ.enqueue('person c');
+// BQ.enqueue('person d');
+// BQ.enqueue('person e');
+// BQ.enqueue('person f');
+
+// bank(BQ);
+
