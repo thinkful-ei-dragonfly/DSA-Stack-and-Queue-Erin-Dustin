@@ -93,11 +93,11 @@ function is_palindrome(s) {
 
 
 function matchingParentheses(string) {
-  if(string[0] === ')' || string[string.length - 1] === '(') {
-    return 'Cannot start with a closing or end with an opening parentheses'
-  }
+  // if(string[0] === ')' || string[string.length - 1] === '(') {
+  //   return 'Cannot start with a closing or end with an opening parentheses'
+  // }
   let openPosition = 0;
-  let closedPosition = 0;
+  // let closedPosition = 0;
   let moves = 0;
   let parenCount = 0;
   let parenthesesStack = new Stack();
@@ -127,4 +127,4 @@ function matchingParentheses(string) {
   }
 }
 
-// console.log(matchingParentheses('()()()'));
+console.log(matchingParentheses('()()())'));
