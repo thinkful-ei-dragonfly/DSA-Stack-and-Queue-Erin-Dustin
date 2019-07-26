@@ -127,4 +127,54 @@ function matchingParentheses(string) {
   }
 }
 
+function sortStack(stack){
+  //[3,4,1,5] [] t[]
+  //[4,1,5] [] t[3]
+  //[1,5] [] t[4,3]
+  //[1,5] [4] t[3]
+  //[1,5] [3,4] t[]
+  //[5] [1,3,4] t[]
+  //[5] [] [4,3,1]
+  //[][5][4,3,1]
+  // [1,3,4,5]
+}
+
+class Queue {
+  constructor(){
+    this.first = null;
+    this.last = null;
+  }
+  enqueue(item){
+    let node = new _Node(item,null);
+    if(this.last === null){
+      this.first = node;
+      this.last = node;
+      return;
+    }
+    this.last.next = node;
+    this.last = node;
+  }
+
+  dequeue(){
+    if(this.first === null){
+      return;
+    }
+    let node = this.first;
+    if(this.first === this.last){
+      this.first === null;
+      this.last === null;
+      return node;
+    }
+    this.first = this.first.next;
+    return node.data;
+  }
+}
+
+let Q = new Queue;
+Q.enqueue('a');
+Q.enqueue('b');
+console.log(Q);
+console.log(Q.dequeue());
+console.log(Q);
+
 // console.log(matchingParentheses('()()()'));
