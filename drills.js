@@ -126,7 +126,7 @@ function matchingParentheses(string) {
   return `Open parentheses at position ${openPosition}`;
   }
 }
-console.log(matchingParentheses('()()())'));
+// console.log(matchingParentheses('()()())'));
 
 function sortStack(stack){
   //[3,4,1,5] [] t[]
@@ -139,6 +139,46 @@ function sortStack(stack){
   //[][5][4,3,1]
   // [1,3,4,5]
 }
+
+// console.log(matchingParentheses('()()()'));
+
+// input:  [1,5,3,4]
+// output: [1,3,4,5]
+
+
+// temp: 1
+
+function sortStack(stack) {
+  let temp;
+  let secondStack = new Stack;
+
+  while(stack.top){
+    // console.log(temp);
+    temp = stack.pop();
+    while(secondStack.top && temp > secondStack.top.data) {
+      stack.push(secondStack.pop());
+    }
+      secondStack.push(temp);
+    }
+  
+    // display(stack);
+    return secondStack;
+  }
+ 
+
+// const newStack = new Stack();
+// newStack.push(1);
+// newStack.push(2);
+// newStack.push(3);
+// newStack.push(4);
+// newStack.push(6);
+// console.log(display(sortStack(newStack)));
+
+// []
+// [4,6]
+// temp = 3
+
+
 
 class Queue {
   constructor(){
@@ -171,11 +211,40 @@ class Queue {
   }
 }
 
-let Q = new Queue;
-Q.enqueue('a');
-Q.enqueue('b');
-console.log(Q);
-console.log(Q.dequeue());
-console.log(Q);
+let starTrekQ = new Queue;
+starTrekQ.enqueue('Kirk');
+starTrekQ.enqueue('Spock');
+starTrekQ.enqueue('Uhura');
+starTrekQ.enqueue('Sulu');
+starTrekQ.enqueue('Checkov');
 
-// console.log(matchingParentheses('()()()'));
+function peekQ(queue){
+  console.log(queue.first.data);
+}
+
+peekQ(starTrekQ);
+
+function isEmptyQ(queue){
+  if(queue.first === null){
+    return true;
+  }
+  return false;
+}
+
+const emptyQ = new Queue();
+// console.log(isEmptyQ(starTrekQ));
+
+function displayQ(queue){
+  let currNode = queue.first;
+  while(currNode.next !== null){
+    console.log(currNode.data);
+    currNode = currNode.next;
+  }
+  console.log(currNode.data);
+}
+
+// displayQ(starTrekQ);
+
+starTrekQ.dequeue();
+starTrekQ.dequeue();
+displayQ(starTrekQ);
